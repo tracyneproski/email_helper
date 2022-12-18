@@ -24,5 +24,7 @@ document.getElementById("prompt-form").addEventListener("submit", function(event
   .then(response => response.json())
   .then(result => {
     console.log(result["text"]);
+    // Insert the response into the response area
+    document.getElementById('response-area').innerHTML = result["text"];
   });
 });
