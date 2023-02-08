@@ -9,11 +9,14 @@ document.getElementById("prompt-form").addEventListener("submit", function(event
   const additionalContext = document.getElementById("additional-context").value;
   const intendedResult = document.getElementById("intended-result").value;
 
+  // Get the API key from the process environment
+  const apiKey = process.env.OPENAI_API_KEY;
+
   // Use the input values to generate the email
   fetch("https://api.openai.com/v1/text-davinci/generate", {
     method: "POST",
     headers: {
-      "Authorization": `Bearer ${api_key}`,
+      "Authorization": `Bearer ${apiKey}`,
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
